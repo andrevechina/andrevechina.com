@@ -1,12 +1,20 @@
-const fs = require('fs')
 const path = require('path')
 
-const appDirectory = fs.realpathSync(process.cwd())
+const CleanWebpackPlugin = require('clean-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const paths = require('./paths')
 
 module.exports = {
-    entry: path.resolve(appDirectory, 'src', 'index'),
+    entry: path.resolve(paths.srcDirectory, 'index'),
     output: {
-        path: path.resolve(appDirectory, 'dist'),
+        path: path.resolve(paths.distDirectory),
         filename: 'bundle.js'
-    }
+    },
+    plugins: [
+        new CleanWebpackPlugin(paths.distDirectory),
+        new HtmlWebpackPlugin({
+            template: path.resolve(paths.srcDirectory, 'index.html')
+        })
+    ]
 }
