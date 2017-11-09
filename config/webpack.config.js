@@ -11,6 +11,20 @@ module.exports = {
         path: path.resolve(paths.distDirectory),
         filename: 'bundle.js'
     },
+    module: {
+        rules: [{
+            test: /\.js$/,
+            include: [
+                paths.srcDirectory
+            ],
+            loader: "babel-loader",
+            options: {
+                presets: [
+                    'env'
+                ]
+            }
+        }]
+    },
     plugins: [
         new CleanWebpackPlugin(paths.distDirectory),
         new HtmlWebpackPlugin({
