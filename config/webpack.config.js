@@ -11,9 +11,12 @@ module.exports = {
         path: path.resolve(paths.distDirectory),
         filename: 'bundle.js'
     },
+    resolve: {
+        extensions: ['js', 'jsx']
+    },
     module: {
         rules: [{
-            test: /\.js$/,
+            test: /\.jsx?$/,
             include: [
                 paths.srcDirectory
             ],
