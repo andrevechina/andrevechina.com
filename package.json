@@ -6,12 +6,16 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rimraf dist",
-    "build": "webpack --config config/webpack.config.js"
+    "cp:public": "cpx public/* dist",
+    "webpack:prod": "webpack -p --config config/webpack.config.js",
+    "build": "npm-run-all clean webpack:prod"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "cpx": "^1.5.0",
+    "npm-run-all": "^4.1.2",
     "rimraf": "^2.6.2",
     "webpack": "^3.8.1"
   }
