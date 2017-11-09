@@ -4,7 +4,8 @@
   "description": "André Vechina Personal Website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config config/webpack.config.js"
   },
   "author": "",
   "license": "ISC",
