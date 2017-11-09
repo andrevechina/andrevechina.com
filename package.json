@@ -8,7 +8,7 @@
     "clean": "rimraf dist",
     "cp:public": "cpx public/* dist",
     "webpack:prod": "webpack -p --config config/webpack.config.js",
-    "build": "npm-run-all clean webpack:prod"
+    "build": "npm-run-all clean cp:public webpack:prod"
   },
   "author": "",
   "license": "ISC",
