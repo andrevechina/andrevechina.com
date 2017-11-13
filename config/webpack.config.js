@@ -6,45 +6,48 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./paths')
 
 module.exports = {
-    entry: path.resolve(paths.srcDirectory, 'index'),
-    output: {
-        path: path.resolve(paths.distDirectory),
-        filename: 'bundle.js'
-    },
-    resolve: {
-        extensions: ['.js', '.jsx']
-    },
-    module: {
-        rules: [{
-            enforce: 'pre',
-            test: /\.jsx?$/,
-            loader: 'eslint-loader',
-            options: {
-                fix: 'true'
+  entry: path.resolve(paths.srcDirectory, 'index'),
+  output: {
+    path: path.resolve(paths.distDirectory),
+    filename: 'bundle.js'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+  module: {
+    rules: [{
+      enforce: 'pre',
+      test: /\.jsx?$/,
+      include: [
+        paths.srcDirectory
+      ],
+      loader: 'standard-loader',
+      options: {
+        fix: 'true'
+      }
+    }, {
+      test: /\.jsx?$/,
+      include: [
+        paths.srcDirectory
+      ],
+      loader: 'babel-loader',
+      options: {
+        presets: [
+          [
+            'env',
+            {
+              modules: false
             }
-        }, {
-            test: /\.jsx?$/,
-            include: [
-                paths.srcDirectory
-            ],
-            loader: 'babel-loader',
-            options: {
-                presets: [
-                    [
-                        'env',
-                        {
-                            modules: false
-                        }
-                    ],
-                    'react'
-                ]
-            }
-        }]
-    },
-    plugins: [
-        new CleanWebpackPlugin(paths.distDirectory),
-        new HtmlWebpackPlugin({
-            template: path.resolve(paths.srcDirectory, 'index.html')
-        })
-    ]
+          ],
+          'react'
+        ]
+      }
+    }]
+  },
+  plugins: [
+    new CleanWebpackPlugin(paths.distDirectory),
+    new HtmlWebpackPlugin({
+      template: path.resolve(paths.srcDirectory, 'index.html')
+    })
+  ]
 }

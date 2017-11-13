@@ -5,7 +5,7 @@ const srcDirectory = path.resolve(appDirectory, 'src')
 const distDirectory = path.resolve(appDirectory, 'dist')
 
 module.exports = {
-    appDirectory,
-    srcDirectory,
-    distDirectory
+  appDirectory,
+  srcDirectory,
+  distDirectory
 }
