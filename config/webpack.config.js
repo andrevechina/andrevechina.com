@@ -16,11 +16,18 @@ module.exports = {
     },
     module: {
         rules: [{
+            enforce: 'pre',
+            test: /\.jsx?$/,
+            loader: 'eslint-loader',
+            options: {
+                fix: 'true'
+            }
+        }, {
             test: /\.jsx?$/,
             include: [
                 paths.srcDirectory
             ],
-            loader: "babel-loader",
+            loader: 'babel-loader',
             options: {
                 presets: [
                     [
