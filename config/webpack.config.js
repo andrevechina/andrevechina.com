@@ -21,7 +21,7 @@ module.exports = {
       include: [
         paths.srcDirectory
       ],
-      loader: 'standard-loader',
+      loader: 'eslint-loader',
       options: {
         fix: 'true'
       }
