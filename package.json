@@ -1,7 +1,7 @@
 {
-  "name": "andre-vechina-website",
+  "name": "my-react-app",
   "version": "0.0.1",
-  "description": "André Vechina Personal Website",
+  "description": "My React App",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
