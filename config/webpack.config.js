@@ -18,30 +18,27 @@ module.exports = {
     rules: [{
       enforce: 'pre',
       test: /\.jsx?$/,
-      include: [
-        paths.srcDirectory
-      ],
+      include: [paths.srcDirectory],
       loader: 'eslint-loader',
       options: {
         fix: 'true'
       }
     }, {
       test: /\.jsx?$/,
-      include: [
-        paths.srcDirectory
-      ],
+      include: [paths.srcDirectory],
       loader: 'babel-loader',
       options: {
         presets: [
-          [
-            'env',
-            {
-              modules: false
-            }
-          ],
+          ['env', { modules: false }],
           'react'
         ]
       }
+    }, {
+      test: /\.(jpg|png|svg|gif)/,
+      loader: 'file-loader'
+    }, {
+      test: /\.css$/,
+      use: ['style-loader', 'css-loader']
     }]
   },
   plugins: [
