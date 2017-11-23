@@ -34,7 +34,7 @@ module.exports = {
         ]
       }
     }, {
-      test: /\.(jpg|png|svg|gif)/,
+      test: /\.(jpg|png|svg|gif)$/,
       loader: 'file-loader'
     }, {
       test: /\.(scss|sass)$/,
