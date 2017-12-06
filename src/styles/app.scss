@@ -1,9 +1,9 @@
-$bg: lightskyblue;
+
 
 html, body {
     margin: 0;
     padding: 0;
-    background-color: $bg;
+    background-color: white;
     font-family: 'Lato', sans-serif;
     font-size: 14px;
 }
@@ -30,7 +30,7 @@ html, body {
     .name {
         font-size: 40px;
     }
-    
+
     .lastName {
         font-weight: bold;
     }
