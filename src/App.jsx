@@ -3,6 +3,8 @@ import './styles/fonts.scss'
 import './styles/app.scss'
 import Hello from './components/Hello'
 
-export default () => (
-  <Hello />
-)
+export default function App () {
+  return [
+    <Hello />
+  ]
+}
