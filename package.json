@@ -1,7 +1,7 @@
 {
-  "name": "my-react-app",
+  "name": "andrevechina.com",
   "version": "0.0.1",
-  "description": "My React App",
+  "description": "andrevechina.com website",
   "main": "index.js",
   "scripts": {
     "clean": "rimraf dist",
@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0"
   },
@@ -24,6 +25,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "clean-webpack-plugin": "^0.1.17",
     "css-loader": "^0.28.7",

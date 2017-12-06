@@ -6,7 +6,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const paths = require('./paths')
 
 module.exports = {
-  entry: path.resolve(paths.srcDirectory, 'index'),
+  entry: [
+    path.resolve(paths.srcDirectory, 'index')
+  ],
   output: {
     path: path.resolve(paths.distDirectory),
     filename: 'bundle.js'
@@ -30,7 +32,8 @@ module.exports = {
       options: {
         presets: [
           ['env', { modules: false }],
-          'react'
+          'react',
+          'stage-2'
         ]
       }
     }, {
