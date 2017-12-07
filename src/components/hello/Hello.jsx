@@ -1,5 +1,5 @@
 import React from 'react'
-import helloImage from '../images/hello.jpg'
+import helloImage from '../../images/hello.jpg'
 
 export default function Hello () {
   return (

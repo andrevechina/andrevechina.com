@@ -12,8 +12,8 @@ export default class ExperienceItem extends Component {
         const { company, jobTitle } = this.props
         return (
             <div className="experience-item">
-                <div className="company">{company}</div>
-                <div className="job-title">{jobTitle}</div>
+                <span className="company">{company}</span>
+                <span className="job-title">{jobTitle}</span>
             </div>
         )
     }
