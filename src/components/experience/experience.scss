@@ -1,3 +1,17 @@
-.experience-container {
-    padding-top: 33vh;
+@import '../../styles/variables.scss';
+
+.experience-container {
+    padding-top: 25vh;
+    display: flex;
+    flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+        font-size: $title-font-size;
+
+        &::first-letter {
+            font-weight: bold;
+        }
+    }
 }

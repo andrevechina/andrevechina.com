@@ -3,6 +3,26 @@
 .experience-item {
     width: 500px;
     padding: 30px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.1);
     border-radius: $border-radius;
+
+    &:first-child {
+        margin-top: 50px;
+    }
+
+    &:last-child {
+        margin-bottom: 50px;
+    }
+
+    .company {
+        font-size: 18px;
+        font-variant: small-caps;
+        font-weight: bold;
+    }
+
+    .job-title {
+        &::before {
+            content: " | ";
+        }
+    }
 }

@@ -1,20 +1,18 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import './experience-item.scss'
 
-export default class ExperienceItem extends Component {
-    static propTypes = {
-        company: PropTypes.string.isRequired,
-        jobTitle: PropTypes.string.isRequired
-    }
+export default function ExperienceItem (props) {
+  const { company, jobTitle } = props
+  return (
+    <div className="experience-item">
+      <span className="company">{company}</span>
+      <span className="job-title">{jobTitle}</span>
+    </div>
+  )
+}
 
-    render () {
-        const { company, jobTitle } = this.props
-        return (
-            <div className="experience-item">
-                <span className="company">{company}</span>
-                <span className="job-title">{jobTitle}</span>
-            </div>
-        )
-    }
+ExperienceItem.propTypes = {
+  company: PropTypes.string.isRequired,
+  jobTitle: PropTypes.string.isRequired
 }
