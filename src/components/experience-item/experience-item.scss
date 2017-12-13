@@ -25,4 +25,19 @@
             content: " | ";
         }
     }
+
+    .descriptions {
+        padding: 0;
+        list-style: none;
+
+        li {
+            text-align: justify;
+            text-indent: 10px;
+
+            &:before {
+                content: "\00B7";
+                padding-right: 5px;
+            }
+        }
+    }
 }

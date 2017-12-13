@@ -1,22 +1,60 @@
-import React from 'react'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { get } from 'lodash'
+import { connect } from 'react-redux'
 import './experience.scss'
-import experience from '../../resources/experience.json'
 import ExperienceItem from '../experience-item/ExperienceItem'
+import { fetchExperience } from '../../actions/experienceActions'
 
-export default function Experience () {
-  return (
-    <div className="experience-container">
-      <div className="title">Experience</div>
-      <div>
-        {
-          experience.map(experienceItem => (
+export class Experience extends Component {
+  static propTypes = {
+    fetchExperience: PropTypes.func.isRequired,
+    experience: PropTypes.arrayOf(PropTypes.shape({
+      company: PropTypes.string,
+      role: PropTypes.string
+    })).isRequired
+  }
+
+  componentDidMount () {
+    this.props.fetchExperience()
+  }
+
+  render () {
+    const { experience } = this.props
+    return (
+      experience.length &&
+      <div className="experience-container">
+        <div className="title">Experience</div>
+        <div>
+          {experience.map(experienceItem => (
             <ExperienceItem
+              key={experienceItem.from}
               company={experienceItem.company}
-              jobTitle={experienceItem.jobTitle}
+              jobTitle={experienceItem.role}
+              startDate={experienceItem.from}
+              endDate={experienceItem.to}
+              descriptions={experienceItem.descriptions}
             />
-          ))
-        }
+          ))}
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
+
+function mapStateToProps (state) {
+  const experience = get(state, 'experience', [])
+  return {
+    experience
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    fetchExperience () {
+      dispatch(fetchExperience())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Experience)

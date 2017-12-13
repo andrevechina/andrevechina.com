@@ -1,5 +1,5 @@
 const path = require('path')
-
+const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -7,6 +7,7 @@ const paths = require('./paths')
 
 module.exports = {
   entry: [
+    'babel-polyfill',
     path.resolve(paths.srcDirectory, 'index')
   ],
   output: {
@@ -54,6 +55,9 @@ module.exports = {
     new CleanWebpackPlugin(paths.distDirectory),
     new HtmlWebpackPlugin({
       template: path.resolve(paths.srcDirectory, 'index.html')
+    }),
+    new webpack.EnvironmentPlugin({
+      'NODE_ENV': 'development'
     })
   ]
 }
