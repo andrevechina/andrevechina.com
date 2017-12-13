@@ -4,5 +4,9 @@ import promiseMiddleware from 'redux-promise-middleware'
 import rootReducer from '../reducers/rootReducer'
 
 export default function configureStore () {
-  return createStore(rootReducer, {}, applyMiddleware(logger, promiseMiddleware()))
+  const middlewares = [promiseMiddleware()]
+  if (process.env.NODE_ENV !== 'production') {
+    middlewares.push(logger)
+  }
+  return createStore(rootReducer, {}, applyMiddleware(...middlewares))
 }

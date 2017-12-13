@@ -23,6 +23,8 @@ export function fetchExperience () {
         const to = getTextContent(jobItem.getElementsByClassName('to')[0])
         const location = getTextContent(jobItem.getElementsByClassName('where')[0])
         const descriptions = [...jobItem.getElementsByTagName('li')].map(getTextContent)
+        const skillRows = jobItem.querySelector('p:last-child').innerHTML.split('<br>')
+        const skills = skillRows.map(skillRow => skillRow.split('⋅').map(skill => skill.trim()))
 
         return {
           company,
@@ -30,7 +32,8 @@ export function fetchExperience () {
           from,
           to,
           location,
-          descriptions
+          descriptions,
+          skills
         }
       })
     }

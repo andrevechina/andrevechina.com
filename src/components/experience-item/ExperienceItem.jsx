@@ -4,7 +4,7 @@ import './experience-item.scss'
 
 export default function ExperienceItem (props) {
   const {
-    company, jobTitle, startDate, endDate, descriptions
+    company, jobTitle, startDate, endDate, descriptions, skills
   } = props
   return (
     <div className="experience-item">
@@ -21,6 +21,15 @@ export default function ExperienceItem (props) {
           {descriptions.map(descriptionEntry => <li key={descriptionEntry}>{descriptionEntry}</li>)}
         </ul>
       }
+      <div className="skills">
+        {
+          skills.map(skillsRow => (
+            <div key={skillsRow}>
+              {skillsRow.map(skill => (<span className="skill" key={skill}>{skill}</span>))}
+            </div>
+          ))
+        }
+      </div>
     </div>
   )
 }
@@ -30,5 +39,6 @@ ExperienceItem.propTypes = {
   jobTitle: PropTypes.string.isRequired,
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
-  descriptions: PropTypes.arrayOf(PropTypes.string).isRequired
+  descriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
+  skills: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired
 }

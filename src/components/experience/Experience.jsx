@@ -34,6 +34,7 @@ export class Experience extends Component {
               startDate={experienceItem.from}
               endDate={experienceItem.to}
               descriptions={experienceItem.descriptions}
+              skills={experienceItem.skills}
             />
           ))}
         </div>
