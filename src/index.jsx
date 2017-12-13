@@ -2,10 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import App from './App'
 import configureStore from './store/configureStore'
+import isResourceLoaded from './helpers/resourcesHelpers'
 
-const store = configureStore()
+function renderApp () {
+  document.getElementById('spinner-container').remove()
 
-ReactDOM.render(
-  <App store={store} />,
-  document.getElementById('app')
-)
+  const store = configureStore()
+
+  ReactDOM.render(
+    <App store={store} />,
+    document.getElementById('app')
+  )
+}
+
+isResourceLoaded().then(renderApp)
