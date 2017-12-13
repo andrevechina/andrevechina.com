@@ -11,7 +11,8 @@
     "test:dev": "karma start",
     "start": "npm run webpack:dev",
     "build": "npm run webpack:prod",
-    "deploy": "npm run build && firebase deploy"
+    "deploy": "npm run build && firebase deploy",
+    "firebase:auth": "firebase login --reauth"
   },
   "author": "",
   "license": "ISC",
