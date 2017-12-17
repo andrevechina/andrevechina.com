@@ -4,7 +4,7 @@
     background-color: #f6f6f6;
     padding: 15px;
 
-    .role, .company, .dates {
+    .role, .company-location, .dates {
         display: block;
     }
 
@@ -17,8 +17,11 @@
     .company {
         font-weight: bold;
         color: rgba(25, 25, 25, .7);
+    }
+
+    .location {
         &::before {
-            content: "@ ";
+            content: " @ ";
         }
     }
 
@@ -38,11 +41,16 @@
     }
 
     .skills {
+        margin: 10px 0;
         text-align: center;
 
         .skill {
             display: inline-block;
             padding: 0 15px;
         }
+    }
+
+    .description-opts {
+        text-align: right;
     }
 }

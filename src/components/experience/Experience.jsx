@@ -30,8 +30,9 @@ export class Experience extends Component {
           {experience.map(experienceItem => (
             <ExperienceItem
               key={experienceItem.from}
+              role={experienceItem.role}
               company={experienceItem.company}
-              jobTitle={experienceItem.role}
+              location={experienceItem.location}
               startDate={experienceItem.from}
               endDate={experienceItem.to}
               descriptions={experienceItem.descriptions}
