@@ -54,3 +54,10 @@
         text-align: right;
     }
 }
+
+@media screen and (min-width: 800px) {
+    .experience-item > div {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}

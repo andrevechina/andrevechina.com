@@ -27,30 +27,32 @@ export default class ExperienceItem extends Component {
     return (
       <div className="experience-item">
         <div>
-          <span className="role">{role}</span>
-          <span className="company-location">
-            <span className="company">{company}</span>
-            <span className="location">{location}</span>
-          </span>
-          <span className="dates">{startDate} - {endDate}</span>
-        </div>
-        <div className="skills">
+          <div>
+            <span className="role">{role}</span>
+            <span className="company-location">
+              <span className="company">{company}</span>
+              <span className="location">{location}</span>
+            </span>
+            <span className="dates">{startDate} - {endDate}</span>
+          </div>
+          <div className="skills">
+            {
+              skills.map(skill => (<span className="skill" key={skill}>{skill}</span>))
+            }
+          </div>
           {
-            skills.map(skill => (<span className="skill" key={skill}>{skill}</span>))
+            !descriptionCollapsed && descriptions.length &&
+            <ul className="descriptions">
+              {descriptions.map(descriptionEntry =>
+                <li key={descriptionEntry}>{descriptionEntry}</li>)}
+            </ul>
           }
-        </div>
-        {
-          !descriptionCollapsed && descriptions.length &&
-          <ul className="descriptions">
-            {descriptions.map(descriptionEntry =>
-              <li key={descriptionEntry}>{descriptionEntry}</li>)}
-          </ul>
-        }
-        <div className="description-opts">
-          <RaisedButton
-            label={`${descriptionCollapsed ? 'Show' : 'Hide'} description`}
-            onClick={this.toggleDescription}
-          />
+          <div className="description-opts">
+            <RaisedButton
+              label={`${descriptionCollapsed ? 'Show' : 'Hide'} description`}
+              onClick={this.toggleDescription}
+            />
+          </div>
         </div>
       </div>
     )
