@@ -1,4 +1,5 @@
 import React from 'react'
+import './hello.scss'
 import helloImage from '../../images/hello.jpg'
 
 export default function Hello () {

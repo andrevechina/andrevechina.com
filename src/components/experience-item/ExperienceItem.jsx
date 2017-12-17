@@ -9,10 +9,8 @@ export default function ExperienceItem (props) {
   return (
     <div className="experience-item">
       <div>
+        <span className="role">{jobTitle}</span>
         <span className="company">{company}</span>
-        <span className="role"> | {jobTitle}</span>
-      </div>
-      <div>
         <span>{startDate} - {endDate}</span>
       </div>
       {
@@ -23,11 +21,7 @@ export default function ExperienceItem (props) {
       }
       <div className="skills">
         {
-          skills.map(skillsRow => (
-            <div key={skillsRow}>
-              {skillsRow.map(skill => (<span className="skill" key={skill}>{skill}</span>))}
-            </div>
-          ))
+          skills.map(skill => (<span className="skill" key={skill}>{skill}</span>))
         }
       </div>
     </div>
@@ -40,5 +34,5 @@ ExperienceItem.propTypes = {
   startDate: PropTypes.string.isRequired,
   endDate: PropTypes.string.isRequired,
   descriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
-  skills: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired
+  skills: PropTypes.arrayOf(PropTypes.string).isRequired
 }

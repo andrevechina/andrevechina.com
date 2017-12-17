@@ -1,28 +1,24 @@
 @import '../../styles/variables.scss';
 
 .experience-item {
-    width: 500px;
-    padding: 30px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border-radius: $border-radius;
+    background-color: #f6f6f6;
+    padding: 15px;
 
-    &:first-child {
-        margin-top: 50px;
+    .role, .company, .dates {
+        display: block;
     }
 
-    &:last-child {
-        margin-bottom: 50px;
-    }
-
-    .company {
+    .role {
         font-size: 18px;
         font-variant: small-caps;
         font-weight: bold;
     }
 
-    .job-title {
+    .company {
+        font-weight: bold;
+        color: rgba(25, 25, 25, .7);
         &::before {
-            content: " | ";
+            content: "@ ";
         }
     }
 
@@ -45,15 +41,8 @@
         text-align: center;
 
         .skill {
-            &::after {
-                content: "\00B7";
-                padding: 0 10px;
-            }
-
-            &:last-child::after {
-                content: "";
-                padding: 0;
-            }
+            display: inline-block;
+            padding: 0 15px;
         }
     }
 }

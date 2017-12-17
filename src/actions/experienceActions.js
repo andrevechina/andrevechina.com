@@ -2,6 +2,10 @@
 import { get } from 'lodash'
 import { RECEIVE_EXPERIENCE } from './actionTypes'
 
+function postProccessText (text) {
+  return text.replace('ﬀ', 'ff')
+}
+
 function getTextContent (dom) {
   return get(dom, 'textContent', '').trim()
 }
@@ -12,8 +16,9 @@ export function fetchExperience () {
     async payload () {
       const res = await fetch('https://raw.githubusercontent.com/andrevechina/andre-vechina-resume/master/andre-vechina-resume.html')
       const text = await res.text()
+      const postProccessedText = postProccessText(text)
       const parser = new DOMParser()
-      const dom = parser.parseFromString(text, 'text/html')
+      const dom = parser.parseFromString(postProccessedText, 'text/html')
 
       const jobItems = [...dom.getElementsByClassName('experience-item')]
       return jobItems.map((jobItem) => {
@@ -24,7 +29,8 @@ export function fetchExperience () {
         const location = getTextContent(jobItem.getElementsByClassName('where')[0])
         const descriptions = [...jobItem.getElementsByTagName('li')].map(getTextContent)
         const skillRows = jobItem.querySelector('p:last-child').innerHTML.split('<br>')
-        const skills = skillRows.map(skillRow => skillRow.split('⋅').map(skill => skill.trim()))
+        const skillsArr = skillRows.map(skillRow => skillRow.split('⋅').map(skill => skill.trim()))
+        const skills = skillsArr.reduce((accSkills, skillArr) => accSkills.concat(skillArr), [])
 
         return {
           company,

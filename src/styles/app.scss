@@ -5,33 +5,13 @@ html, body {
     padding: 0;
     background-color: white;
     font-family: 'Lato', sans-serif;
-    font-size: 14px;
+    font-size: 16px;
 }
 
-.hello-container {
-    height: 100vh;
-    background-attachment: fixed;
-    background-position: right center;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+* { box-sizing: border-box; }
 
-    .message {
-        width: 300px;
-        padding: 20px;
-        margin-bottom: 10%;
-        background-color: rgba(255, 255, 255, 0.8);
-        border-radius: $border-radius;
-        text-align: center;
-        font-size: 18px;
-    }
-
-    .name {
-        font-size: 40px;
-    }
-
-    .lastName {
-        font-weight: bold;
-    }
+.section-rule {
+    border-top: #8c2d19 solid 2px;
+    width: 100px;
+    border-width: 2px 0 0;
 }

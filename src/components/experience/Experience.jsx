@@ -25,6 +25,7 @@ export class Experience extends Component {
       experience.length &&
       <div className="experience-container">
         <div className="title">Experience</div>
+        <hr className="section-rule" />
         <div>
           {experience.map(experienceItem => (
             <ExperienceItem

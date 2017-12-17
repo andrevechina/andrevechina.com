@@ -2,24 +2,17 @@
 
 .experience-container {
     margin: 15vh 0;
-    display: flex;
-    flex-direction: column;
-    flex-direction: column;
-    align-items: center;
 
     .title {
         font-size: $title-font-size;
+        text-align: center;
 
         &::first-letter {
             font-weight: bold;
         }
     }
 
-    .experience-item {
-        margin-bottom: 5vh;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
+    .experience-item:nth-child(odd) {
+        background-color: white;
     }
 }
