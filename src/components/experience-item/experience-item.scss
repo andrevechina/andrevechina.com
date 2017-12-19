@@ -9,17 +9,19 @@
     }
 
     .role {
-        font-size: 18px;
+        font-size: 24px;
         font-variant: small-caps;
         font-weight: bold;
     }
 
     .company {
         font-weight: bold;
-        color: rgba(25, 25, 25, .7);
+        color: #373737;
     }
 
     .location {
+        white-space: nowrap;
+
         &::before {
             content: " @ ";
         }
