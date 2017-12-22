@@ -6,6 +6,7 @@ import './styles/fonts.scss'
 import './styles/app.scss'
 import Hello from './components/hello/Hello'
 import Experience from './components/experience/Experience'
+import Education from './components/education/Education'
 
 export default function App (props) {
   return (
@@ -14,6 +15,7 @@ export default function App (props) {
         <div>
           <Hello />
           <Experience />
+          <Education />
         </div>
       </MuiThemeProvider>
     </Provider>
