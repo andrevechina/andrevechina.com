@@ -1,3 +1,35 @@
+@import '../../styles/app.scss';
+@import '../../styles/variables.scss';
+
 .education-container {
-    background-image: url("../../images/ua.jpeg");
+    position: relative;
+    padding: 15vh 0;
+    
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;  
+        bottom: 0;  
+        width: 100%;
+        background-image: url("../../images/ua.jpeg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.1;
+        z-index: -1;
+    }
+
+    .details > div {
+        text-align: center;
+    }
+
+    .college {
+        @extend .heading;
+        margin-top: 15px;
+    }
+
+    .course {
+        color: $text-color-secundary;
+    }
 }

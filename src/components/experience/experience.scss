@@ -1,16 +1,5 @@
-@import '../../styles/variables.scss';
-
 .experience-container {
-    margin: 15vh 0;
-
-    .title {
-        font-size: $title-font-size;
-        text-align: center;
-
-        &::first-letter {
-            font-weight: bold;
-        }
-    }
+    margin: 10vh 0;
 
     .experience-item:nth-child(odd) {
         background-color: white;

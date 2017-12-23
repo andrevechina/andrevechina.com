@@ -12,7 +12,7 @@ export default function App (props) {
   return (
     <Provider store={props.store}>
       <MuiThemeProvider>
-        <div>
+        <div className="app-container">
           <Hello />
           <Experience />
           <Education />
