@@ -1,65 +1,67 @@
 @import '../../styles/variables.scss';
 
 .experience-item {
-    background-color: #f6f6f6;
-    padding: 15px;
+  background-color: #f6f6f6;
+  padding: 15px;
 
-    .role, .company-location, .dates {
-        display: block;
+  .role,
+  .company-location,
+  .dates {
+    display: block;
+  }
+
+  .role {
+    font-size: 24px;
+    font-variant: small-caps;
+    font-weight: bold;
+  }
+
+  .company {
+    font-weight: bold;
+    color: $text-color-secundary;
+  }
+
+  .location {
+    white-space: nowrap;
+
+    &::before {
+      content: " @ ";
     }
+  }
 
-    .role {
-        font-size: 24px;
-        font-variant: small-caps;
-        font-weight: bold;
+  .descriptions {
+    padding: 0;
+    list-style: none;
+
+    li {
+      text-align: justify;
+      text-indent: 10px;
+
+      &::before {
+        content: "\00B7";
+        padding-right: 5px;
+      }
     }
+  }
 
-    .company {
-        font-weight: bold;
-        color: $text-color-secundary;
+  .skills {
+    margin: 10px 0;
+    text-align: center;
+
+    .skill {
+      display: inline-block;
+      padding: 0 15px;
     }
+  }
 
-    .location {
-        white-space: nowrap;
-
-        &::before {
-            content: " @ ";
-        }
-    }
-
-    .descriptions {
-        padding: 0;
-        list-style: none;
-
-        li {
-            text-align: justify;
-            text-indent: 10px;
-
-            &:before {
-                content: "\00B7";
-                padding-right: 5px;
-            }
-        }
-    }
-
-    .skills {
-        margin: 10px 0;
-        text-align: center;
-
-        .skill {
-            display: inline-block;
-            padding: 0 15px;
-        }
-    }
-
-    .description-opts {
-        text-align: right;
-    }
+  .description-opts {
+    text-align: right;
+  }
 }
 
 @media screen and (min-width: 800px) {
-    .experience-item > div {
-        max-width: 800px;
-        margin: 0 auto;
-    }
+  .experience-item > div {
+    max-width: 800px;
+    margin: 0 auto;
+  }
 }

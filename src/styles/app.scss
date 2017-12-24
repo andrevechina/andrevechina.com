@@ -1,33 +1,34 @@
 @import './variables.scss';
 
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
 }
 
 * { box-sizing: border-box; }
 
 .app-container {
-    .section-rule {
-        border-top: $color-primary solid 2px;
-        width: 100px;
-        border-width: 2px 0 0;
-    }
+  .section-rule {
+    border-top: $color-primary solid 2px;
+    width: 100px;
+    border-width: 2px 0 0;
+  }
 
-    .title {
-        font-size: $title-font-size;
-        text-align: center;
+  .title {
+    font-size: $title-font-size;
+    text-align: center;
 
-        &::first-letter {
-            font-weight: bold;
-        }
+    &::first-letter {
+      font-weight: bold;
     }
+  }
+}
 
-    .heading {
-        font-size: 24px;
-        font-variant: small-caps;
-        font-weight: bold;
-    }
+.heading {
+  font-size: 24px;
+  font-variant: small-caps;
+  font-weight: bold;
 }
