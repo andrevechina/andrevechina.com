@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const paths = require('./paths')
 
@@ -39,7 +38,7 @@ module.exports = {
         ]
       }
     }, {
-      test: /\.(jpg|jpeg|png|svg|gif)$/,
+      test: /\.(jpe?g|png|gif)$/,
       loader: 'file-loader'
     }, {
       test: /\.(scss|sass)$/,
@@ -48,15 +47,15 @@ module.exports = {
       test: /\.css$/,
       use: ['style-loader', 'css-loader']
     }, {
-      test: /\.(eot|svg|ttf|woff|woff2)$/,
+      test: /\.(eot|ttf|woff|woff2)$/,
       loader: 'file-loader'
+    }, {
+      test: /\.svg/,
+      loader: 'svg-inline-loader'
     }]
   },
   plugins: [
     new CleanWebpackPlugin(paths.distDirectory),
-    new StyleLintPlugin({
-      fix: path.basename(require.main.filename) !== 'webpack-dev-server.js'
-    }),
     new HtmlWebpackPlugin({
       template: path.resolve(paths.srcDirectory, 'index.html')
     }),

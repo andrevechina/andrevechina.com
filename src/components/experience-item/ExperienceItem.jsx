@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { RaisedButton } from 'material-ui'
 import './experience-item.scss'
+import companyLogoHelper from '../../helpers/companyLogoHelper'
 
 export default class ExperienceItem extends Component {
-  constructor () {
+  constructor (props) {
     super()
     this.state = {
-      descriptionCollapsed: true
+      descriptionCollapsed: true,
+      logo: companyLogoHelper(props.company)
     }
 
     this.toggleDescription = this.toggleDescription.bind(this)
@@ -23,10 +25,16 @@ export default class ExperienceItem extends Component {
     const {
       role, company, location, startDate, endDate, descriptions, skills
     } = this.props
-    const { descriptionCollapsed } = this.state
+    const { descriptionCollapsed, logo } = this.state
     return (
       <div className="experience-item">
         <div>
+          {
+            logo &&
+            <div className="logo">
+              <logo />
+            </div>
+          }
           <div>
             <span className="role">{role}</span>
             <span className="company-location">
