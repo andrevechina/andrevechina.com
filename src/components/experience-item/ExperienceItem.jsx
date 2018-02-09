@@ -4,7 +4,7 @@ import { RaisedButton } from 'material-ui'
 import './experience-item.scss'
 
 export default class ExperienceItem extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       descriptionCollapsed: true
@@ -13,16 +13,14 @@ export default class ExperienceItem extends Component {
     this.toggleDescription = this.toggleDescription.bind(this)
   }
 
-  toggleDescription () {
+  toggleDescription() {
     this.setState({
       descriptionCollapsed: !this.state.descriptionCollapsed
     })
   }
 
-  render () {
-    const {
-      role, company, location, startDate, endDate, descriptions, skills
-    } = this.props
+  render() {
+    const { role, company, location, startDate, endDate, descriptions, skills } = this.props
     const { descriptionCollapsed } = this.state
     return (
       <div className="experience-item">
@@ -33,20 +31,23 @@ export default class ExperienceItem extends Component {
               <span className="company">{company}</span>
               <span className="location">{location}</span>
             </span>
-            <span className="dates">{startDate} - {endDate}</span>
+            <span className="dates">
+              {startDate} - {endDate}
+            </span>
           </div>
           <div className="skills">
-            {
-              skills.map(skill => (<span className="skill" key={skill}>{skill}</span>))
-            }
+            {skills.map(skill => (
+              <span className="skill" key={skill}>
+                {skill}
+              </span>
+            ))}
           </div>
-          {
-            !descriptionCollapsed && descriptions.length &&
-            <ul className="descriptions">
-              {descriptions.map(descriptionEntry =>
-                <li key={descriptionEntry}>{descriptionEntry}</li>)}
-            </ul>
-          }
+          {!descriptionCollapsed &&
+            descriptions.length && (
+              <ul className="descriptions">
+                {descriptions.map(descriptionEntry => <li key={descriptionEntry}>{descriptionEntry}</li>)}
+              </ul>
+            )}
           <div className="description-opts">
             <RaisedButton
               label={`${descriptionCollapsed ? 'Show' : 'Hide'} description`}

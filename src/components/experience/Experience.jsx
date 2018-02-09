@@ -6,55 +6,58 @@ import './experience.scss'
 import ExperienceItem from '../experience-item/ExperienceItem'
 import { fetchExperience } from '../../actions/experienceActions'
 
-export class Experience extends Component {
+class Experience extends Component {
   static propTypes = {
     fetchExperience: PropTypes.func.isRequired,
-    experience: PropTypes.arrayOf(PropTypes.shape({
-      company: PropTypes.string,
-      role: PropTypes.string
-    })).isRequired
+    experience: PropTypes.arrayOf(
+      PropTypes.shape({
+        company: PropTypes.string,
+        role: PropTypes.string
+      })
+    ).isRequired
   }
 
-  componentDidMount () {
+  componentDidMount() {
     this.props.fetchExperience()
   }
 
-  render () {
+  render() {
     const { experience } = this.props
     return (
-      experience.length &&
-      <div className="experience-container">
-        <div className="title">Experience</div>
-        <hr className="section-rule" />
-        <div>
-          {experience.map(experienceItem => (
-            <ExperienceItem
-              key={experienceItem.from}
-              role={experienceItem.role}
-              company={experienceItem.company}
-              location={experienceItem.location}
-              startDate={experienceItem.from}
-              endDate={experienceItem.to}
-              descriptions={experienceItem.descriptions}
-              skills={experienceItem.skills}
-            />
-          ))}
+      experience.length && (
+        <div className="experience-container">
+          <div className="title">Experience</div>
+          <hr className="section-rule" />
+          <div>
+            {experience.map(experienceItem => (
+              <ExperienceItem
+                key={experienceItem.from}
+                role={experienceItem.role}
+                company={experienceItem.company}
+                location={experienceItem.location}
+                startDate={experienceItem.from}
+                endDate={experienceItem.to}
+                descriptions={experienceItem.descriptions}
+                skills={experienceItem.skills}
+              />
+            ))}
+          </div>
         </div>
-      </div>
+      )
     )
   }
 }
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   const experience = get(state, 'experience', [])
   return {
     experience
   }
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    fetchExperience () {
+    fetchExperience() {
       dispatch(fetchExperience())
     }
   }

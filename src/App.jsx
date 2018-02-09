@@ -8,7 +8,7 @@ import Hello from './components/hello/Hello'
 import Experience from './components/experience/Experience'
 import Education from './components/education/Education'
 
-export default function App (props) {
+export default function App(props) {
   return (
     <Provider store={props.store}>
       <MuiThemeProvider>
