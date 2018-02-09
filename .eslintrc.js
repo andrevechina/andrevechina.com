@@ -1,10 +1,11 @@
 module.exports = {
-    extends: [ 'airbnb', 'standard' ],
-    parser: 'babel-eslint',
-    env: {
-        browser: true
-    },
-    rules: {
-        'import/no-named-as-default': 'off'
-    }
+  extends: ['airbnb', 'prettier'],
+  plugins: ['prettier'],
+  rules: {
+    'prettier/prettier': 'error'
+  },
+  parser: 'babel-eslint',
+  env: {
+    browser: true
+  }
 }
