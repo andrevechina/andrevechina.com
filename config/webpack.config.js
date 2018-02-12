@@ -26,10 +26,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         include: [paths.srcDirectory],
-        loader: 'babel-loader',
-        options: {
-          presets: [['env', { modules: false }], 'react', 'stage-2']
-        }
+        loader: 'babel-loader'
       },
       {
         test: /\.(jpg|jpeg|png|svg|gif)$/,
