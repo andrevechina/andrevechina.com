@@ -5,7 +5,5 @@ const webpack = require('./webpack.config')
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = merge(webpack, {
-  plugins: [
-    new UglifyjsWebpackPlugin()
-  ]
+  plugins: [new UglifyjsWebpackPlugin()]
 })
